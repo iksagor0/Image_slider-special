@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="image-slider">
+        <div class="slides">
+            <div class="slide active">
+                <img src="img/2.jpg" alt="">
+                <div class="text">
+                    <h1>Slide 1</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, tempora?</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/3.jpg" alt="">
+                <div class="text">
+                    <h1>Slide 2</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, tempora?</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/4.jpg" alt="">
+                <div class="text">
+                    <h1>Slide 3</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, tempora?</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="img/5.jpg" alt="">
+                <div class="text">
+                    <h1>Slide 4</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, tempora?</p>
+                </div>
+            </div>
+        </div>
+        <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="length"></div>
+    </div>
+
+
+
+
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        var counter = 1;
+
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].addEventListener('click', function () {
+                const active = document.querySelectorAll('.active');
+
+                // Remove Active from current
+                for (let i = 0; i < active.length; i++) {
+                    active[i].classList.remove('active');
+                }
+
+                slides[i].classList.add('active');
+                dots[i].classList.add('active');
+            })
+        }
+
+        // sliding();
+        setInterval(function () {
+
+            const active = document.querySelectorAll('.active');
+            // Remove Active from current
+            for (let i = 0; i < active.length; i++) {
+                active[i].classList.remove('active');
+            }
+
+            slides[counter].classList.add('active');
+            dots[counter].classList.add('active');
+            counter++
+
+            if (counter >= dots.length) {
+                counter = 0;
+            }
+
+        }, 10000);
+    </script>
+
+
+</body>
+
+</html>

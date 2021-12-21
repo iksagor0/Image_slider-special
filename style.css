@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(247, 246, 246);
+}
+
+.image-slider {
+    max-width: 800px;
+    width: 90%;
+    max-height: 450px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7),
+        0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 450px;
+}
+
+.slide .text {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    color: #fff;
+}
+
+.text h1 {
+    margin-bottom: 3px;
+}
+
+.text p {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.dots div {
+    padding: 4px;
+    border: 2px solid #fff;
+    display: inline-block;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: 8px;
+    cursor: pointer;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+}
+
+.dots div:hover {
+    background: #fff;
+}
+
+.dots .active {
+    background: #fff;
+}
+
+.slides .active {
+    display: block;
+    animation: clipping 1s ease-in-out;
+    -webkit-animation: clipping 1s ease-in-out;
+}
+
+@keyframes clipping {
+    0% {
+        clip-path: circle(0% at 0 50%);
+    }
+
+    100% {
+        clip-path: circle(150% at 0 50%);
+    }
+}
+
+.length{
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    animation: length 10s linear;
+    -webkit-animation: length 10s linear infinite;
+}
+
+@keyframes length{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
